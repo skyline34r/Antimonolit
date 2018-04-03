@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antimonolit.AuthService", "Antimonolit.AuthService\Antimonolit.AuthService.csproj", "{0425D29B-B49A-4760-90C7-B614A969A1F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.AuthenticationService", "Antimonolit.AuthService\Antimonolith.AuthenticationService.csproj", "{0425D29B-B49A-4760-90C7-B614A969A1F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{86168A1B-6593-4C88-87FB-A2AFDFFB1D10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.DataAccess", "DAL\Antimonolith.DataAccess.csproj", "{86168A1B-6593-4C88-87FB-A2AFDFFB1D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{72B3439D-4430-4415-8E20-6208C5D3135B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.Services", "Services\Antimonolith.Services.csproj", "{72B3439D-4430-4415-8E20-6208C5D3135B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{B862DFAF-B84B-480F-A157-899694A6CE1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.Domain.Models", "Models\Antimonolith.Domain.Models.csproj", "{B862DFAF-B84B-480F-A157-899694A6CE1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

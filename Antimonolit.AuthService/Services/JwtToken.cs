@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
+using Antimonolith.Services.Models;
 using Newtonsoft.Json;
 
 namespace Models
 {
     public static class JsonWebToken
     {
-        public static string Encode(object payload, string key)
+        public static string Encode(PayloadModel payload, string key)
         {
             var segments = new List<string>();
             var header = new { alg = "HS256", typ = "JWT", kid = 0 };
@@ -34,7 +35,13 @@ namespace Models
 
             var signature = getSignature(stringToSign, key);
 
-            return signature == segments[2];
+            var signIsCorrect = signature == segments[2];
+
+            var payload = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(Convert.FromBase64String(segments[1]))) as PayloadModel;
+
+            var isExpired = DateTimeOffset.Parse(payload.ExpirationDate) <= DateTimeOffset.Now;
+
+            return signIsCorrect && !isExpired;
         }
 
         public static object Decode(string token, string key)

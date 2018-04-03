@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Models\Antimonolith.Domain.Models.csproj" />
   </ItemGroup>
 
 </Project>

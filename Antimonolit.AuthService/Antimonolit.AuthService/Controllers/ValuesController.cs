@@ -15,12 +15,6 @@ namespace Antimonolit.AuthService.Controllers
         {
             this.authService = authService;
         }
-        
-        [HttpGet]
-        public string Auth(string login, string pass)
-        {
-            return authService.GetToken(login, pass);
-        }
 
         [HttpGet]
         public object Verify(string token)
