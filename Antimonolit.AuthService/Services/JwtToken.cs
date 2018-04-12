@@ -37,7 +37,7 @@ namespace Models
 
             var signIsCorrect = signature == segments[2];
 
-            var payload = JsonConvert.DeserializeObject(Encoding.UTF8.GetString(Convert.FromBase64String(segments[1]))) as PayloadModel;
+            var payload = JsonConvert.DeserializeObject<PayloadModel>(Encoding.UTF8.GetString(Convert.FromBase64String(segments[1])));
 
             var isExpired = DateTimeOffset.Parse(payload.ExpirationDate) <= DateTimeOffset.Now;
 

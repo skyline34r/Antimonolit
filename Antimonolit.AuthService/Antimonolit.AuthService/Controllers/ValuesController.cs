@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Antimonolith.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 
@@ -16,10 +17,10 @@ namespace Antimonolit.AuthService.Controllers
             this.authService = authService;
         }
 
-        [HttpGet]
-        public object Verify(string token)
+        [HttpPost]
+        public object Verify([FromBody] TokenModel tokens)
         {
-            return authService.GetData(token);
+            return authService.GetData(tokens.AccessToken);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Services
     public class AuthService : IAuthService
     {
         private const string secretKey = "A37F4B08-D855-4B8B-A9E8-E795869BCC5A";
-        private const int defaultExpirationTimeout = 15;
+        private const int defaultExpirationTimeout = 1;
 
         private DataContext context;
 
@@ -43,7 +43,18 @@ namespace Services
                 return null;
             }
             var user = getUserDataByRefreshToken(refreshToken);
+            if(user == null)
+            {
+                return null;
+            }
             return getToken(user);
+        }
+
+        public void RemoveRefreshToken(string refreshToken)
+        {
+            var user = getUserDataByRefreshToken(refreshToken);
+            user.RefreshToken = null;
+            updateRefreshToken(user);
         }
 
         public object GetData(string token)
@@ -98,5 +109,9 @@ namespace Services
         TokenModel GetToken(string login, string password);
 
         object GetData(string token);
+
+        void RemoveRefreshToken(string refreshToken);
+
+        TokenModel RenewToken(string refreshToken);
     }
 }

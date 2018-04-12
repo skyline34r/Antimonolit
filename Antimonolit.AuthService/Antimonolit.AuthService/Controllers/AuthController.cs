@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Antimonolith.Services.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -9,7 +10,7 @@ using Services;
 namespace Antimonolith.AuthService.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Auth")]
+    [Route("api/Auth/[action]")]
     public class AuthController : Controller
     {
         private IAuthService authService;
@@ -20,9 +21,22 @@ namespace Antimonolith.AuthService.Controllers
         }
 
         [HttpPost]
-        public string Auth([FromBody] LoginModel loginModel)
+        public TokenModel Login([FromBody] LoginModel loginModel)
         {
             return authService.GetToken(loginModel.Login, loginModel.Password);
+        }
+
+        [HttpPost]
+        public TokenModel Refresh([FromBody] TokenModel tokens)
+        {
+            return authService.RenewToken(tokens.RefreshToken);
+        }
+
+        [HttpPost]
+        public IActionResult Logout([FromBody] TokenModel tokens)
+        {
+            authService.RemoveRefreshToken(tokens.RefreshToken);
+            return Ok();
         }
     }
 
