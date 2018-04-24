@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Antimonolith.AuthenticationService.Configuration;
 using DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,8 @@ namespace Antimonolit.AuthService
         {
             services.AddMvc();
             services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IAuthService, Services.AuthService>();
+
+            services.ConfigureServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +43,7 @@ namespace Antimonolit.AuthService
 
             app.UseMvc();
 
+            context.Database.Migrate();
             context.EnsureSeeded();
         }
     }

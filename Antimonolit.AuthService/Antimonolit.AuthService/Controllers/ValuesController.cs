@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Antimonolith.Services;
 using Antimonolith.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -20,6 +21,7 @@ namespace Antimonolit.AuthService.Controllers
         [HttpPost]
         public object Verify([FromBody] TokenModel tokens)
         {
+            RSAService.rsa();
             return authService.GetData(tokens.AccessToken);
         }
     }

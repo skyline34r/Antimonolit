@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.AuthenticationService", "Antimonolit.AuthService\Antimonolith.AuthenticationService.csproj", "{0425D29B-B49A-4760-90C7-B614A969A1F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.AuthenticationAPI", "Antimonolit.AuthService\Antimonolith.AuthenticationAPI.csproj", "{0425D29B-B49A-4760-90C7-B614A969A1F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Antimonolith.DataAccess", "DAL\Antimonolith.DataAccess.csproj", "{86168A1B-6593-4C88-87FB-A2AFDFFB1D10}"
 EndProject

@@ -7,14 +7,14 @@ using Models;
 
 namespace Services
 {
-    public class AuthService : IAuthService
+    public class Auth1Service : IAuthService
     {
         private const string secretKey = "A37F4B08-D855-4B8B-A9E8-E795869BCC5A";
         private const int defaultExpirationTimeout = 1;
 
         private DataContext context;
 
-        public AuthService(DataContext context)
+        public Auth1Service(DataContext context)
         {
             this.context = context;
         }
